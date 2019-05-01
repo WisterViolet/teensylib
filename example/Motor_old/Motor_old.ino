@@ -1,6 +1,6 @@
 #include<Motor_old.h>
 
-TMotor m(21,22,23);
+Motor_old m(21,22,23);
 // (Fpin,Rpin,PWMpin)の順に入れてください
 
 void setup(){

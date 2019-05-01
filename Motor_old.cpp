@@ -1,14 +1,14 @@
 #include "Arduino.h"
-#include "Motor.h"
+#include "Motor_old.h"
 
-struct Motor{
+struct TMotor_old{
     int F;
     int R;
     int pwm;
     int speed;
 };
 
-TMotor::TMotor(int F, int R, int pwm){
+Motor_old::Motor_old(int F, int R, int pwm){
     motor->F = F;
     motor->R = R;
     motor->pwm = pwm;
@@ -18,7 +18,7 @@ TMotor::TMotor(int F, int R, int pwm){
     pinMode(motor->pwm, OUTPUT);
 }
 
-void TMotor::run(int speed){
+void Motor_old::run(int speed){
     motor->speed = speed;
     if(motor->speed < 0){
         motor->speed = (-1)*motor->speed;
