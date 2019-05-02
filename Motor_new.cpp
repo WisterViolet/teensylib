@@ -18,6 +18,6 @@ Motor_new::Motor_new(int L, int pwm){
 }
 
 void Motor_old::run(int speed){
-    motor->speed = speed;
+    motor->speed = speed+128;
     analogWrite(motor->pwm, speed);
 }
