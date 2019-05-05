@@ -52,7 +52,7 @@ void setup(){
 
 
 void loop(){
-    if(Serial.available() > 0){
+    while(Serial.available() > 0){
         DRoute(Serial.read());
     }
     Serial.print("A:");

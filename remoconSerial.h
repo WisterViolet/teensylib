@@ -9,5 +9,5 @@ void Data4(int);
 void Data5(int);
 void Data6(int);
 void Data7(int);
-void DRoute(int);
+void DRoute(byte);
 #endif

@@ -9,7 +9,7 @@ void (*SDataf[8])(int) = {
     Data5,
     Data6,
     Data7,
-}
+};
 
 void DRoute(byte d){
     SDataf[d & 0b111](d >> 3);
