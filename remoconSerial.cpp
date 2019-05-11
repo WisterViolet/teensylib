@@ -32,7 +32,7 @@ void Data3(byte d,remoconData *R){
     R->L3 = !!bitRead(d,4);
     R->RF = !!bitRead(d,3);
     R->LF = !!bitRead(d,2);
-    R->Start = !!bitRead(d,1);
+    R->P = R->LF^R->RF;
 }
 
 void Data4(byte d,remoconData *R){
