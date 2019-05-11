@@ -11,8 +11,8 @@ void setup(){
 void loop(){
     if(Serial1.available() > 0){
         byte d = Serial1.read();
-        Serial.print(d & 0b111, BIN); Serial.print(":"); Serial.println(d >> 3,BIN);
+        Serial.print(d & 0b111); Serial.print(":"); Serial.println(d >> 3,BIN);
         DRoute(d, &RD);
-        Serial.print("Select:"); Serial.println(RD.Select,BIN);
+        Serial.print("Start:"); Serial.println(RD.Start,BIN);
     }
 }
