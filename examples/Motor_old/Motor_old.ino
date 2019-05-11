@@ -1,13 +1,12 @@
-#include<Motor_old.h>
+#include "Motor_old.h"
 
 Motor_old m(21,22,23);
-// (Fpin,Rpin,PWMpin)の順に入れてください
 
 void setup(){
-
 }
 
 void loop(){
-    m.run(100);
-    // スピードは-256~256の範囲で決められます.+で正転,-で逆転です.
+    for(int i = -255;i < 256;i++){
+      m.run(i);
+    }
 }
