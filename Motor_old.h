@@ -3,12 +3,14 @@
 /*
 Motorライブラリ
 */
-struct TMotor_old;   // Motorの情報を保存する構造体(.cpp|L3-8)
 class Motor_old{
     private:
-        TMotor_old* motor; 
+        int FPin;
+        int RPin;
+        int pwmPin;
+        int speedV;
     public:
-        Motor_old(int,int,int);
+        void init(int,int,int);
         void run(int);
 };
 #endif

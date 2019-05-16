@@ -1,37 +1,30 @@
 #include "Arduino.h"
 #include "Motor_old.h"
 
-struct TMotor_old{
-    int F;
-    int R;
-    int pwm;
-    int speed;
-};
-
-Motor_old::Motor_old(int F, int R, int pwm){
-    motor->F = F;
-    motor->R = R;
-    motor->pwm = pwm;
-    motor->speed = 0;
-    pinMode(motor->F, OUTPUT);
-    pinMode(motor->R, OUTPUT);
-    pinMode(motor->pwm, OUTPUT);
+void Motor_old::init(int f, int r, int pp){
+    FPin = f;
+    RPin = r;
+    pwmPin = pp;
+    speedV = 0;
+    pinMode(FPin, OUTPUT);
+    pinMode(RPin, OUTPUT);
+    pinMode(pwmPin, OUTPUT);
 }
 
-void Motor_old::run(int speed){
-    motor->speed = speed;
-    if(motor->speed < 0){
-        motor->speed = (-1)*motor->speed;
-        digitalWrite(motor->F, LOW);
-        digitalWrite(motor->R, HIGH);
+void Motor_old::run(int s){
+    speedV = s;
+    if(speedV < 0){
+        speedV = (-1)*speedV;
+        digitalWrite(FPin, LOW);
+        digitalWrite(RPin, HIGH);
     }
-    else if(motor->speed > 0){
-        digitalWrite(motor->R, LOW);
-        digitalWrite(motor->F, HIGH);
+    else if(speedV > 0){
+        digitalWrite(RPin, LOW);
+        digitalWrite(FPin, HIGH);
     }
     else{
-        digitalWrite(motor->R, LOW);
-        digitalWrite(motor->F, LOW);        
+        digitalWrite(RPin, LOW);
+        digitalWrite(FPin, LOW);        
     }
-    analogWrite(motor->pwm, speed);
+    analogWrite(pwmPin, speedV);
 }
