@@ -12,5 +12,6 @@ class Motor_old{
     public:
         void init(int,int,int);
         void run(int);
+        void short_brake(bool);
 };
 #endif
