@@ -11,4 +11,8 @@ void loop(){
       m.run(i-250);
       delay(10);
     }
+    m.short_brake(1);
+    delay(500);
+    m.short_brake(0);
+    delay(10);
 }

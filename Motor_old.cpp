@@ -28,3 +28,15 @@ void Motor_old::run(int s){
     }
     analogWrite(pwmPin, speedV);
 }
+
+void Motor_old::short_brake(bool f){
+    if(f == true){
+        digitalWrite(RPin, HIGH);
+        digitalWrite(FPin, HIGH);
+    }
+    else{
+        digitalWrite(RPin, LOW);
+        digitalWrite(FPin, LOW);      
+    }
+    analogWrite(pwmPin, 0);
+}
