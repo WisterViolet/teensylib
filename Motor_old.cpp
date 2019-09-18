@@ -13,7 +13,13 @@ void Motor_old::init(int f, int r, int pp){
 
 void Motor_old::run(int s){
     speedV = s;
-    if(speedV < 0){
+    if(speedV == 0){
+        digitalWrite(RPin, LOW);
+        digitalWrite(FPin, LOW); 
+        analogWrite(pwmPin, 0);
+        return;
+    }
+    else if(speedV < 0){
         speedV = (-1)*speedV;
         digitalWrite(FPin, LOW);
         digitalWrite(RPin, HIGH);
@@ -21,10 +27,6 @@ void Motor_old::run(int s){
     else if(speedV > 0){
         digitalWrite(RPin, LOW);
         digitalWrite(FPin, HIGH);
-    }
-    else{
-        digitalWrite(RPin, LOW);
-        digitalWrite(FPin, LOW);        
     }
     analogWrite(pwmPin, speedV);
 }
